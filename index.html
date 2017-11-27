@@ -113,7 +113,7 @@
 				<div class="text">
 
 					<!-- Start edit here  -->
-					Write something here.
+					We filtered the data and removed the startinf and ending 
 					<!-- Stop edit here -->
 
 				</div>
@@ -126,7 +126,7 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Since, we couldn't get any datset from any source, we recorded it on our own. Initially, we recorded for a total of 2700 samples (1350 seconds, 2 samples per second) for each of our three activities, Running, Cycling and Standing. We extracted the features and found out that the accuracy was quite good. I verified the classification by again recording another set of samples, 600 samples for Running, 800 for Standing and 790 for Cycling. Yet again we got goog accuracy on our new dataset.
+						Since, we couldn't get any datset from any source, we recorded it on our own. Initially, we recorded for a total of 2700 samples (1350 seconds, 2 samples per second) for each of our three activities, Running, Cycling and Standing. We extracted the features and found out that the accuracy was quite good. I verified the classification by again recording another set of samples, 600 samples for Running, 800 for Standing and 790 for Cycling. Yet again we got good accuracy on our new dataset.
 						<!-- Stop edit here -->
 
 					</div>
@@ -136,7 +136,39 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Write something here.
+						We did the initial training of the dataset with train ratio equal to 0.7. After testing the data on the 3/10 of the initial dataset, we tested the same classifier on our second dataset. After that, we merged both the datasets and then traoned another classifier to train with train ratio 0.7. The accuracy remained about same for all the three cases.
+						The results for each of the classifier is given:
+						
+						 	 Initial Training (Train ratio = 0.7)
+						Logistic regression Train Accuracy ::  0.985890652557
+						Logistic regression Test Accuracy ::  0.962962962963
+						Multinomial Logistic regression Train Accuracy ::  0.985890652557
+						Multinomial Logistic regression Test Accuracy ::  0.962962962963
+						SVM linear Train Accuracy ::  0.991181657848
+						SVM linear Test Accuracy ::  0.958847736626
+						rbf SVM Train Accuracy ::  0.99823633157
+						rbf SVM Test Accuracy ::  0.925925925926
+						poly SVM Train Accuracy ::  0.996472663139
+						poly SVM Test Accuracy ::  0.954732510288
+
+							 Initial Testing
+						Logistic regression Test Accuracy ::  0.977168949772
+						Multinomial Logistic regression Test Accuracy ::  0.986301369863
+						SVM linear Test Accuracy ::  0.986301369863
+						rbf SVM Test Accuracy ::  0.840182648402
+						poly SVM Test Accuracy ::  0.986301369863
+
+							 Final Training and Testing (After merging both the datasets) 
+						Logistic regression Train Accuracy ::  0.979166666667
+						Logistic regression Test Accuracy ::  0.987055016181
+						Multinomial Logistic regression Train Accuracy ::  0.981944444444
+						Multinomial Logistic regression Test Accuracy ::  0.983818770227
+						SVM linear Train Accuracy ::  0.986111111111
+						SVM linear Test Accuracy ::  0.987055016181
+						rbf SVM Train Accuracy ::  0.988888888889
+						rbf SVM Test Accuracy ::  0.967637540453
+						poly SVM Train Accuracy ::  0.990277777778
+						poly SVM Test Accuracy ::  0.980582524272
 						<!-- Stop edit here -->
 
 					</div>
