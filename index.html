@@ -113,8 +113,34 @@
 				<div class="text">
 
 					<!-- Start edit here  -->
-					We filtered the data and removed the startinf and ending 
-					<!-- Stop edit here -->
+					We filtered the data and then extracted the features. We plotted the features, grouping three of the features at once. The RED colour represents Standing, GREEN represents Running and BLACK represents Cycling. We took a window size of 10. First we found out the featues for each of the x, y and z coordinates and the took the root mean square of the values.
+					1. Mean =  The sum of the sampled values divided by the number of items in the sample.
+					2. STD = A quantity expressing by how much the members of a group differ from the mean value for the group.
+					3. CoV = Measure of relative variability. It is the ratio of the standard deviation to the mean (average).
+					Plotting Mean, STD and CoV:
+					<img src="13.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
+					4. CF = The ratio of peak value to rms value of a window of dataset.
+					5. Average = The mean of the magnitues of the net acceleration.
+					6. SS25 = Squared sum of data below 25 percentile.
+					Plotting CF, Average and SS25:
+					<img src="46.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
+					7. SS75 = Squared sum of data below 75 percentile.
+					8. Sum5Hz = Sum of height of frequency component below 5 Hz.
+					9. maxFreq = Maximum frequency in spectrum.
+					Plotting SS75, sum5Hz, maxFreq
+					<img src="79.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
+					10. LOA = Lag-one AutoCorrelation.
+					11. Skew = Measure of symmetry, or more precisely, the lack of symmetry.
+					12. Kurt = Measure of whether the data are heavy-tailed or light-tailed relative to a normal distribution.
+					Plotting LOA, Skew, Kurt
+					<img src="1012.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
+					13. ZCR = Rate of sign-changes along a signal, i.e., the rate at which the signal changes from positive to negative or back.
+					Continuous wavelet transform (CWT) analyze how the frequency content of a signal changes over time. If input is real-valued, wt is a 2-D matrix where each row corresponds to one scale. The column size of wt is equal to the length of input. The minimum and maximum scales are determined automatically based on the wavelet's energy spread in frequency and time.
+					14. CWTmean = Mean of the mean (2D matrix) of CWT 
+					15. CWTvar = Mean of the variance of CWT.
+					Plotting ZCR, cwtmean, cwtvar
+					<img src="1315.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
+					!-- Stop edit here -->
 
 				</div>
 			</div>
@@ -138,37 +164,7 @@
 						<!-- Start edit here  -->
 						We did the initial training of the dataset with train ratio equal to 0.7. After testing the data on the 3/10 of the initial dataset, we tested the same classifier on our second dataset. After that, we merged both the datasets and then traoned another classifier to train with train ratio 0.7. The accuracy remained about same for all the three cases.
 						The results for each of the classifier is given:
-						
-						 	 Initial Training (Train ratio = 0.7)
-						Logistic regression Train Accuracy ::  0.985890652557
-						Logistic regression Test Accuracy ::  0.962962962963
-						Multinomial Logistic regression Train Accuracy ::  0.985890652557
-						Multinomial Logistic regression Test Accuracy ::  0.962962962963
-						SVM linear Train Accuracy ::  0.991181657848
-						SVM linear Test Accuracy ::  0.958847736626
-						rbf SVM Train Accuracy ::  0.99823633157
-						rbf SVM Test Accuracy ::  0.925925925926
-						poly SVM Train Accuracy ::  0.996472663139
-						poly SVM Test Accuracy ::  0.954732510288
-
-							 Initial Testing
-						Logistic regression Test Accuracy ::  0.977168949772
-						Multinomial Logistic regression Test Accuracy ::  0.986301369863
-						SVM linear Test Accuracy ::  0.986301369863
-						rbf SVM Test Accuracy ::  0.840182648402
-						poly SVM Test Accuracy ::  0.986301369863
-
-							 Final Training and Testing (After merging both the datasets) 
-						Logistic regression Train Accuracy ::  0.979166666667
-						Logistic regression Test Accuracy ::  0.987055016181
-						Multinomial Logistic regression Train Accuracy ::  0.981944444444
-						Multinomial Logistic regression Test Accuracy ::  0.983818770227
-						SVM linear Train Accuracy ::  0.986111111111
-						SVM linear Test Accuracy ::  0.987055016181
-						rbf SVM Train Accuracy ::  0.988888888889
-						rbf SVM Test Accuracy ::  0.967637540453
-						poly SVM Train Accuracy ::  0.990277777778
-						poly SVM Test Accuracy ::  0.980582524272
+						<img src="RESULT.png" width="460px" height="472px" alt="This text displays when the image is unavailable"/>
 						<!-- Stop edit here -->
 
 					</div>
