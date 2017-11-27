@@ -80,8 +80,8 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Each time series A<sub>i</sub>, with i = {x, y, z} has been filtered with a digital filter in order to separate low frequencies components and high frequencies component. The cut-off frequency has been set to 1Hz, arbitrarily. In this way, we obtain for each time series, three more time series A<sub>ij</sub> with j = {b, dc, ac}, where b, dc, ac represent respectively the time series without filtering, the time series resulting from a low pass filtering and the time series resulting from a high pass filtering. Finally, we extract features from each one of the time series. A successful technique for extracting features from sequential motion data has been demonstrated to be windowing with overlapping. From each window, we propose to extract the following features: root mean squared value of integration of acceleration in a window, mean value of Minmax sums, mean value, standard deviation, skewness, kurtosis, mean and variance of continuous wavelet transform and correlation between each pairwise of accelerometer axis. <br>
-						
+						Classification of activities using an accelerometer data has been quite a challenging case. There is always a chance of wrong classification beacause of the noise that gets recorded along with the useful acceleration data. There was a need to extract those features out of the dataset which would be noise resistant.
+						A successful technique for extracting features from sequential motion data has been demonstrated to be windowing with overlapping. From each window, we propose to extract the following features: root mean squared value of integration of acceleration in a window, mean value of Minmax sums, mean value, standard deviation, skewness, kurtosis, mean and variance of continuous wavelet transform and correlation between each pairwise of accelerometer axis. 
 						<!-- Stop edit here -->
 
 					</div>
