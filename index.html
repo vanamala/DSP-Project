@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<style type="text/css">
-			body{font-family: "Bradley Hand ITC";}
+			body{font-family: "Bradley Hand ITC"; background-image: url("1Try.png");}
 			p{display: inline-block;}
 			img{display: block;}
 			.container{width: 90%;position absolute;margin: auto;}
@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="title">Activity Detection using Accelerometer Data</div>
+			<div class="title"><u>Activity Detection using Accelerometer Data</u></div>
 
 			<div class="authors">
 
@@ -31,21 +31,33 @@
 
 
 			<div class="section">
-				<div class="heading">Abstract</div>
+				<div class="heading"><u>Abstract</u></div>
 				<div class="text">
 
 					<!-- Start edit here  -->
 					Activity Recognition is an emerging field of research, born from the larger fields of ubiquitous computing, context-aware computing and multimedia. Recently, recognizing everyday life activities becomes
 					one of the challenges for pervasive computing. It is required in various applications such as medical monitoring and rehabilitation where accurate and detailed measurement of an individual's physical activity is a key requirement. Accelerometers have become the popular choice for measuring physical activity owing to their small size, low cost, convenience and their ability to provide objective information about physical activity. In what follows, an accurate activity recognition system is developed to classify the activities performed into three classes i.e. Standing, Running and Cycling. The accelerometer is worn at the right waist of the user. <br> <br>
 
-					 Data from accelerometer is subjected to feature extraction and then interpreting of the data from this process is done using machine learning algorithms. Accelerometer data obtained is divided into non-overlapping short windows of length 10 instances i.e. 5 continuous seconds in our case beacuse our sampling rate is 2 samples/second. Each window then yields a 13-dimentional feature vector which is used in a training process of machine learning model. 13 features are considered and extracted for the task at hand. They are as follows :- <br>
+					 Data from accelerometer is subjected to feature extraction and then interpreting of the data from this process is done using machine learning algorithms. Accelerometer data obtained is divided into non-overlapping short windows of length 10 instances i.e. 5 continuous seconds in our case beacuse our sampling rate is 2 samples/second. Each window then yields a 15-dimentional feature vector which is used in a training process of machine learning model. 15 features are considered and extracted for the task at hand. Motivation for them are as follows :- <br> <br>
+
+					1. <b><u>Mean:</b></u> Mean refers to the central tendency of the data distribution so it is tells to which value is our activity data biased. <br> <br>
+					2. <b><u>Standard deviation:</b></u> This feature represents the amount of variation or the dispersion of the data present in the activity, so it can differentiate between the activities with same mean values. <br> <br>
+					3. <b><u>Skewness:</b></u> It represents the asymmetry of the data around it’s mean. <br> <br>
+					4. <b><u>Kurtosis:</b></u> It measure whether the data are heavy-tailed or light-tailed relative to a normal distribution. That is, data sets with high kurtosis tend to have heavy tails, or outliers. Data sets with low kurtosis tend to have light tails, or lack of outliers. <br> <br>
+					5. <b><u>Coefficient of Variation:</b></u> It is the standardised measure of deviation in an activity. It is also known as relative standard deviation (RSD). <br> <br>
+					6. <b><u>Zero Crossing Rate:</b></u> It represents the rate of variation of the data from positive to negative or back activities with both negative and positive values tend to have high zero crossing rate. <br> <br>
+					7. <b><u>Data below 25 and 75 percentile:</b></u> This feature represents the distribution of the data in different quartiles. <br> <br>
+					8. <b><u>Peak Frequency component in spectrum of Y-axis data below 2 Hz:</b></u> This feature gives the essence of the low frequency components present in the signal and is important as the real life activates generally have less frequencies. <br> <br>
+					9. <b><u>Number of peaks in spectrum of Y-axis data below 2 Hz:</b></u> It represents the slow varying components in the spectrum of Y axis and important in distinguishing between the activates with and without motion in Y direction. <br>
+
+					 <br> <a href="https://github.com/vanamala/DSP-Project">Click here</a> for all the required datasets and codes.
 					<!-- Stop edit here -->
 
 				</div>
 			</div>
 
 			<div class="section">
-				<div class="heading">1. Introduction</div>
+				<div class="heading">1. <u>Introduction</u></div>
 				<div class="text">
 
 					<!-- Start edit here  -->
@@ -56,7 +68,7 @@
 				</div>
 
 				<div class="subsection">
-					<div class="heading">1.1 Introduction to Problem</div>
+					<div class="heading">1.1 <u>Introduction to Problem</u></div>
 					<div class="text">
 
 						<!-- Start edit here  -->
@@ -67,18 +79,19 @@
 				</div>
 
 				<div class="subsection">
-					<div class="heading">1.2 Figure</div>
+					<div class="heading">1.2 <u>Figure</u></div>
 					<div class="image">
 
 						<!-- Start edit here  -->
-						Block diagram of the system.
+						<br>
+						Block diagram of the system. 
 						<img src="Try.png" width="540px" height="360px" alt="This text displays when the image is unavailable"/>
 						<!-- Stop edit here -->
 
 					</div>
 				</div>
 				<div class="subsection">
-					<div class="heading">1.3 Literature Review</div>
+					<div class="heading">1.3 <u>Literature Review</u></div>
 					<div class="text">
 
 						<!-- Start edit here  -->
@@ -93,24 +106,27 @@
 					</div>
 				</div>
 				<div class="subsection">
-					<div class="heading">1.4 Proposed Approach</div>
+					<div class="heading">1.4 <u>Proposed Approach</u></div>
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Step 1 : Accelerometer Data Collection and Data-Set Creation. <br>
-						Step 2 : Feature Extraction. <br>
-						Step 3 : Training the Classifier & testing and finding accuracy. <br>
+						<b>Step 1 :</b> Accelerometer Data Collection and Data-Set Creation. <br>
+						<b>Step 2 :</b> Feature Extraction. <br>
+						<b>Step 3 :</b> Training the Classifier & testing and finding accuracy. <br>
 
 						<!-- Stop edit here -->
 
 					</div>
 				</div>
 				<div class="subsection">
-					<div class="heading">1.5 Report Organization</div>
+					<div class="heading">1.5 <u>Report Organization</u></div>
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Write something here.
+						<b>Section 1</b> describes the Motivation for our Project, Problem Statement and the Literature we reviewed. <br> 
+						<b>Section 2</b> describes the detailed approach followed to extract feature out of the given dataset. <br>
+						<b>Section 3</b> shows our classification results and the data set used for verifying. <br>
+						In <b>section 4</b>, we summarised our whole project work.
 						<!-- Stop edit here -->
 
 					</div>
@@ -118,42 +134,42 @@
 			</div>
 
 			<div class="section">
-				<div class="heading">2. Proposed Approach</div>
+				<div class="heading">2. <u>Proposed Approach</u></div>
 				<div class="text">
 
 					<!-- Start edit here  -->
-					 Step 1 : Accelerometer Data Collection and Data-Set Creation :- <br>
-					 Acceleration data is collected using an accelerometer (ADXL335). The accelerometer is a tri-axial accelerometer which gives acceleration in the X, Y and Z axes. The accelerometer data pertaining to the activities of standing, running and cycling, performed by a number of people is obtained via the accelerometer which is attached to the waist of the person performing the activity. The accelerometer is interfaced with a Raspberry Pi module and configured accordingly. Raspberry Pi module is used to store the data. The accelerometer data is recorded for the activities performed in continuation. Thus, the data set in regards to the activities is formed. <br> <br>
+					 <b><u>Step 1 : Accelerometer Data Collection and Data-Set Creation :-</u></b> <br><br>
+					 Acceleration data is collected using an accelerometer (ADXL335). The accelerometer is a tri-axial accelerometer which gives acceleration in the X, Y and Z axes. The accelerometer data pertaining to the activities of standing, running and cycling, performed by a number of people is obtained via the accelerometer which is attached to the waist of the person performing the activity. The accelerometer is interfaced with a Raspberry Pi module and configured accordingly. Raspberry Pi module is used to store the data. The accelerometer data is recorded for the activities performed in continuation. Thus, the data set in regards to the activities is formed. <br> <br> <br>
 
-					 Step 2 : Feature Extraction :- <br>
-					 A 13-dimension feature vectors is extracted from non-overlapping short windows of length 10 instances i.e. 5 seconds for the activities as obtained earlier. <br> <br>
+					 <b><u>Step 2 : Feature Extraction :-</u></b> <br><br>
+					 A 15-dimension feature vectors is extracted from non-overlapping short windows of length 10 instances i.e. 5 seconds for the activities as obtained earlier. <br> <br>
 
 					The following are some details about the same :- <br>
 
-					1. Mean- The average of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+					1. <b><u>Mean</u></b>- The average of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
 
-					2. Standard Deviation- It is given by the square root of the sum of squared deviations about the mean. It is therefore, the second order moment about the mean. The standard deviation is calculated for the data along all the three axes and RMS value is taken. <br> <br>
+					2. <b><u>Standard Deviation</u></b>- It is given by the square root of the sum of squared deviations about the mean. It is therefore, the second order moment about the mean. The standard deviation is calculated for the data along all the three axes and RMS value is taken. <br> <br>
 
-					3. Coefficient of Variation- It is the ratio of the standard deviation to the mean. It indicates the relative variability. The coefficient of variation of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+					3. <b><u>Coefficient of Variation</u></b>- It is the ratio of the standard deviation to the mean. It indicates the relative variability. The coefficient of variation of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
 
-					4. Skewness- It is the third order moment about the mean. It measures the degree of asymmetry of the data. The skewness of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+					4. <b><u>Skewness</u></b>- It is the third order moment about the mean. It measures the degree of asymmetry of the data. The skewness of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
 
-					5. Kurtosis- It is the fourth order moment about the mean. It measures the tailed-ness of the data. The kurtosis of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+					5. <b><u>Kurtosis</u></b>- It is the fourth order moment about the mean. It measures the tailed-ness of the data. The kurtosis of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
 
-					6. Zero Crossing Rate(ZCR)- This is a measure of the rate of sign change by the signal from positive to negative or vice-versa. The ZCR of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+					6. <b><u>Zero Crossing Rate(ZCR)</u></b>- This is a measure of the rate of sign change by the signal from positive to negative or vice-versa. The ZCR of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
 
-					7. Data below 25 and 75 percentile- This gives a measure of the data below 25 and 75 percentile respectively. The squared sum of data below 25 percentile and 75 percentile are calculated and used as features. <br> <br>
+					7. <b><u>Data below 25 and 75 percentile</u></b>- This gives a measure of the data below 25 and 75 percentile respectively. The squared sum of data below 25 percentile and 75 percentile are calculated and used as features. <br> <br>
 
-					8. Peak Frequency Component below 2 Hz- The peak frequency in the spectrum of data along the y-axis below 2 Hz. <br> <br>
+					8. <b><u>Peak Frequency Component below 2 Hz</u></b>- The peak frequency in the spectrum of data along the y-axis below 2 Hz. <br> <br>
 
-					9. Number of peaks in y-axis data below 2 Hz- The number of peaks in the spectrum of data along the y-axis is calculate. <br> <br>
+					9. <b><u>Number of peaks in y-axis data below 2 Hz</u></b>- The number of peaks in the spectrum of data along the y-axis is calculated. <br> <br>
 
-					10. Lag One Auto-Correlation- This measures the auto-correlation with unity lag. The Lag One Autocorrelation for the data along all the axes is calculated and the RMS value of the same is taken. <br> <br>
+					10. <b><u>Lag One Auto-Correlation</u></b>- This measures the auto-correlation with unity lag. The Lag One Autocorrelation for the data along all the axes is calculated and the RMS value of the same is taken. <br> <br>
 
-					11. Continuous Wavelet Transform(CWT)- It is used to divide a continuous-time function into wavelets. We found out the the mean of mean and variance of each wavelet. The CWT mean of mean and variance of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+					11. <b><u>Continuous Wavelet Transform(CWT)</u></b>- It is used to divide a continuous-time function into wavelets. We found out the the mean of mean and variance of each wavelet. The CWT mean of mean and variance of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br> <br>
 
 
-					Step 3 : Training the Classifier, tesing and finding accuracy. <br>
+					<b><u>Step 3 : Training the Classifier, tesing and finding accuracy.</u></b> <br><br>
 					Classifier is trained using the features as described above and then tested on a sequence of test data taken from the accelerometer.         
 
 					<!-- Stop edit here -->
@@ -162,9 +178,9 @@
 			</div>
 
 			<div class="section">
-				<div class="heading">3. Experiments &amp; Results</div>
+				<div class="heading">3. <u>Experiments &amp; Results</u></div>
 				<div class="subsection">
-					<div class="heading">3.1 Dataset Description</div>
+					<div class="heading">3.1 <u>Dataset Description</u></div>
 					<div class="text">
 
 						<!-- Start edit here  -->
@@ -179,7 +195,7 @@
 					</div>
 				</div>
 				<div class="subsection">
-					<div class="heading">3.2 Discussion</div>
+					<div class="heading">3.2 <u>Discussion</u></div>
 					<div class="text">
 
 						<!-- Start edit here  -->
@@ -225,7 +241,7 @@
 						<br><u><b>Plotting Crest Factor, Average and Squared Sum of Data below 25 Percentile:</b></u>
 						<img src="46.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
 
-						<br><u><b>Plotting Squared Sum of Data below 25 Percentile, Peak Frequency and Number of peaks in Spectrum of Y-axis data below 1 Hz:</b></u> 
+						<br><u><b>Plotting Squared Sum of Data below 25 Percentile, Peak Frequency and Number of peaks in Spectrum of Y-axis data below 2 Hz:</b></u> 
 						<img src="79.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
 
 						<br><u><b>Plotting Lag One Auto-Correlation, Skewness and Kurtosis:</b></u>
@@ -236,9 +252,8 @@
 
 						<br> <br>
 
-						<b>Results from various classifiers</b> :- <br>
-						<b>=================</b> <br> <br>
-
+						<u><b>Results from various classifiers</b> :- </u> <br> <br> 
+						
 						#Logistic Regression Train Accuracy ::  0.983333333333<br>
 						#Logistic Regression Test Accuracy ::  0.974110032362 <br> <br>
 
@@ -262,9 +277,9 @@
 			</div>
 
 			<div class="section">
-				<div class="heading">4. Conclusions</div>
+				<div class="heading">4. <u>Conclusions</u></div>
 				<div class="subsection">
-					<div class="heading">4.1 Summary</div>
+					<div class="heading">4.1 <u>Summary</u></div>
 					<div class="text">
 
 						<!-- Start edit here  -->
@@ -274,7 +289,7 @@
 					</div>
 				</div>
 				<div class="subsection">
-					<div class="heading">4.2 Future Extensions</div>
+					<div class="heading">4.2 <u>Future Extensions</u></div>
 					<div class="text">
 
 						<!-- Start edit here  -->
