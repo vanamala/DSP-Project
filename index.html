@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<style type="text/css">
-			body{font-family: "Times New Roman";}
+			body{font-family: "Bradley Hand ITC";}
 			p{display: inline-block;}
 			img{display: block;}
 			.container{width: 90%;position absolute;margin: auto;}
@@ -36,7 +36,10 @@
 
 					<!-- Start edit here  -->
 					Activity Recognition is an emerging field of research, born from the larger fields of ubiquitous computing, context-aware computing and multimedia. Recently, recognizing everyday life activities becomes
-					one of the challenges for pervasive computing. <a href="https://github.com/vanamala/DSP-Project">The github repository</a> contains all the required codes and datasets.
+					one of the challenges for pervasive computing. It is required in various applications such as medical monitoring and rehabilitation where accurate and detailed measurement of an individual's physical activity is a key requirement. Accelerometers have become the popular choice for measuring physical activity owing to their small size, low cost, convenience and their ability to provide objective information about physical activity. In what follows, an accurate activity recognition system is developed to classify the activities performed into three classes i.e. Standing, Running and Cycling. The accelerometer is worn at the right waist of the user. <br> <br>
+
+					 Data from accelerometer is subjected to feature extraction and then interpreting of the data from this process is done using machine learning algorithms. Accelerometer data obtained is divided into non-overlapping short windows of length 10 instances i.e. 5 continuous seconds in our case beacuse our sampling rate is 2 samples/second. Each window then yields a 13-dimentional feature vector which is used in a training process of machine learning model. 13 features are considered and extracted for the task at hand. They are as follows :- <br>
+					<!-- Stop edit here -->
 
 				</div>
 			</div>
@@ -69,7 +72,7 @@
 
 						<!-- Start edit here  -->
 						Block diagram of the system.
-						<img src="Try.png" width="540px" height="360px" alt="This text displays when the image is unavailable"/>
+						<img src="Activity Detection.png" width="540px" height="360px" alt="This text displays when the image is unavailable"/>
 						<!-- Stop edit here -->
 
 					</div>
@@ -79,8 +82,12 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Classification of activities using an accelerometer data has been quite a challenging case. There is always a chance of wrong classification beacause of the noise that gets recorded along with the useful acceleration data. There was a need to extract those features out of the dataset which would be noise resistant.
-						A successful technique for extracting features from sequential motion data has been demonstrated to be windowing with overlapping. From each window, we propose to extract the following features: root mean squared value of integration of acceleration in a window, mean value of Minmax sums, mean value, standard deviation, skewness, kurtosis, maximum frequency component, Zero Crossing Rate, mean and variance of continuous wavelet transform and correlation between each pairwise of accelerometer axis. 
+						Some of the approaches, ideas and hints that we found after surveying some papers :- <br> <br>
+
+						1. Each time series A<sub>i</sub>, with i = {x, y, z} can be filtered with a digital filter in order to separate low frequencies components and high frequencies component. The cut-off frequency has been set to 1 Hz, arbitrarily. In this way, we obtain for each time series, three more time series A<sub>ij</sub> with j = {b, dc, ac}, where b, dc, ac represent respectively the time series without filtering, the time series resulting from a low pass filtering and the time series resulting from a high pass filtering. <br> <br>
+						2. A successful technique for extracting features from sequential motion data has been demonstrated to be windowing with overlapping or continuous non-overlapping windows. <br> <br>
+						3. We can extract the following features: root mean squared value of integration of acceleration in a window, mean value of Minmax sums, mean value, standard deviation, coefficient of variation, zero crossing rate, skewness, kurtosis , squared sum of data below 25 & 75 percentile, mean of mean of CWC, variance of CWC and correlation between each pairwise of accelerometer axis. <br>
+
 						<!-- Stop edit here -->
 
 					</div>
@@ -90,7 +97,10 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						The proposed technique is described by three main steps. Firstly we get the raw data from accelerometer and then convert it into usable csv format, separating the coordinates by column. Second step is to extract the above mentioned features taking a window size of 10. Third step is to feed the data in classification algorithms to classify the given activities. 
+						Step 1 : Accelerometer Data Collection and Data-Set Creation. <br>
+						Step 2 : Feature Extraction. <br>
+						Step 3 : Training the Classifier & testing and finding accuracy. <br>
+
 						<!-- Stop edit here -->
 
 					</div>
@@ -100,7 +110,7 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						The rest of the description follows the following organisation: Section 2 describes the detailed approach followed to extract feature out of the given dataset. Section 3 shows our classification results and the data set used for verifying. In section 4, we summarised the result.
+						Write something here.
 						<!-- Stop edit here -->
 
 					</div>
@@ -112,33 +122,40 @@
 				<div class="text">
 
 					<!-- Start edit here  -->
-					We filtered the data and then extracted the features. We plotted the features, grouping three of the features at once. The RED colour represents Standing, GREEN represents Running and BLACK represents Cycling. We took a window size of 10. First we found out the featues for each of the x, y and z coordinates and then took the root mean square of the values.
-					<br />1. Mean =  The sum of the sampled values divided by the number of items in the sample.
-					<br />2. STD = A quantity expressing by how much the members of a group differ from the mean value for the group.
-					<br />3. CoV = Measure of relative variability. It is the ratio of the standard deviation to the mean (average).
-					<br />Plotting Mean, STD and CoV:
-					<img src="13.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
-					<br />4. CF = The ratio of peak value to rms value of a window of dataset.
-					<br />5. Average = The mean of the magnitues of the net acceleration.
-					<br />6. SS25 = Squared sum of data below 25 percentile.
-					<br />Plotting CF, Average and SS25:
-					<img src="46.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
-					<br />7. SS75 = Squared sum of data below 75 percentile.
-					<br />8. Sum5Hz = Sum of height of frequency component below 5 Hz.
-					<br />9. maxFreq = Maximum frequency in spectrum.
-					<br />Plotting SS75, sum5Hz, maxFreq
-					<img src="79.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
-					<br />10. LOA = Lag-one AutoCorrelation.
-					<br />11. Skew = Measure of symmetry, or more precisely, the lack of symmetry.
-					<br />12. Kurt = Measure of whether the data are heavy-tailed or light-tailed relative to a normal distribution.
-					<br />Plotting LOA, Skew, Kurt
-					<img src="1012.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
-					<br />13. ZCR = Rate of sign-changes along a signal, i.e., the rate at which the signal changes from positive to negative or back.
-					<br />Continuous wavelet transform (CWT) analyze how the frequency content of a signal changes over time. If input is real-valued, wt is a 2-D matrix where each row corresponds to one scale. The column size of wt is equal to the length of input. The minimum and maximum scales are determined automatically based on the wavelet's energy spread in frequency and time.
-					<br />14. CWTmean = Mean of the mean (2D matrix) of CWT 
-					<br />15. CWTvar = Mean of the variance of CWT.
-					<br />Plotting ZCR, cwtmean, cwtvar
-					<img src="1315.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
+					 Step 1 : Accelerometer Data Collection and Data-Set Creation :- <br>
+					 Acceleration data is collected using an accelerometer (ADXL335). The accelerometer is a tri-axial accelerometer which gives acceleration in the X, Y and Z axes. The accelerometer data pertaining to the activities of standing, running and cycling, performed by a number of people is obtained via the accelerometer which is attached to the waist of the person performing the activity. The accelerometer is interfaced with a Raspberry Pi module and configured accordingly. Raspberry Pi module is used to store the data. The accelerometer data is recorded for the activities performed in continuation. Thus, the data set in regards to the activities is formed. <br> <br>
+
+					 Step 2 : Feature Extraction :- <br>
+					 A 13-dimension feature vectors is extracted from non-overlapping short windows of length 10 instances i.e. 5 seconds for the activities as obtained earlier. <br> <br>
+
+					The following are some details about the same :- <br>
+
+					1. Mean- The average of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+
+					2. Standard Deviation- It is given by the square root of the sum of squared deviations about the mean. It is therefore, the second order moment about the mean. The standard deviation is calculated for the data along all the three axes and RMS value is taken. <br> <br>
+
+					3. Skewness- It is the third order moment about the mean. It measures the degree of asymmetry of the data. The skewness of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+
+					4. Kurtosis- It is the fourth order moment about the mean. It measures the tailed-ness of the data. The kurtosis of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+
+					5. Coefficient of Variation- It is the ratio of the standard deviation to the mean. It indicates the relative variability. The coefficient of variation of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+
+					6. Zero Crossing Rate(ZCR)- This is a measure of the rate of sign change by the signal from positive to negative or vice-versa. The ZCR of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+
+					7. Data below 25 and 75 percentile- This gives a measure of the data below 25 and 75 percentile respectively. The squared sum of data below 25 percentile and 75 percentile are calculated and used as features. <br> <br>
+
+					8. Peak Frequency Component below 2 Hz- The peak frequency in the spectrum of data along the y-axis below 2 Hz. <br> <br>
+
+					9. Number of peaks in y-axis data below 2 Hz- The number of peaks in the spectrum of data along the y-axis is calculate. <br> <br>
+
+					10. Lag One Auto-Correlation- This measures the auto-correlation with unity lag. The Lag One Autocorrelation for the data along all the axes is calculated and the RMS value of the same is taken. <br> <br>
+
+					11. A continuous wavelet transform (CWT) is used to divide a continuous-time function into wavelets. We found out the the mean of mean and variance of each wavelet. The CWT mean of mean and variance of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
+
+
+					Step 3 : Training the Classifier, tesing and finding accuracy. <br>
+					Classifier is trained using the features as described above and then tested on a sequence of test data taken from the accelerometer.         
+
 					<!-- Stop edit here -->
 
 				</div>
@@ -151,7 +168,12 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Since, we couldn't get any datset from any source, we recorded it on our own. Initially, we recorded for a total of 2700 samples (1350 seconds, 2 samples per second) for each of our three activities, Running, Cycling and Standing. We extracted the features and found out that the accuracy was quite good. I verified the classification by again recording another set of samples, 600 samples for Running, 800 for Standing and 790 for Cycling. Yet again we got good accuracy on our new dataset.
+						Data is collected from ADXL335 which is a tri-axial accelerometer worn on the waist of the user. The data set is obtained by recording 9 sets of data which are performed by a number of individuals. Total duration of each set being 7.5 minutes corresponding to 2.5 minutes for each activity. These activities are performed in succession i.e. running, then cycling followed by standing. The total duration of data for each of the activity being [(2.5 minutes) * 9] = 22.5 minutes. The sampling rate used is 2 Hz and hence a total of [22.5 * (60 seconds) * (2 samples/second)] = 2700 samples for each activity. <br>
+						Acceleration data corresponding to the three axes are therefore collected. This data is segregated into different categories i.e. Running, Cycling and Standing and the data set is created.
+
+
+
+
 						<!-- Stop edit here -->
 
 					</div>
@@ -161,9 +183,63 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						We did the initial training of the dataset with train ratio equal to 0.7. After testing the data on the 3/10 of the initial dataset, we tested the same classifier on our second dataset. After that, we merged both the datasets and then trained another classifier to train with train ratio 0.7. The accuracy remained about same for all the three cases.
-						The results for each of the classifier is given:
-						<img src="RESULT.png" width="460px" height="472px" alt="This text displays when the image is unavailable"/>
+
+						<b>Logistic Regression Model</b> - <br>
+
+						This is a classfication technique which fits a linear model to the feature space involving a probabilistic view of classification. This model involves a vector ß in d – dimensional feature space, the points in feature space are projected on to ß and converted into a real number in the range spanning the whole real line. This real number, thus obtained, is mapped to a value in the range 0 to 1 using the standard logistic function. The prediction using this model can be treated as a probability of class membership. By applying threshold to probability, class assignment can be done. Threshold represents the decision boundadry in the feature space.
+
+						ß is optimized to give the best possible reproduction of training set labels. This is usually done by numerical approximation of maximum likelihood. On really large datasets, stochastic gradient descent may be used.
+
+						There are a number of advantages to this - <br>
+
+						1.	Makes no assumptions about distributions of classes in feature space.<br>
+						2.	Easily extended to multiple classes (multinomial regression) <br>
+						3.	Natural probabilistic view of class predictions.<br>
+						4.	Natural probabilistic view of class predictions <br>
+						5.	Quick to train <br>
+						6.	Very fast at classifying unknown records<br>
+						7.	Good accuracy for many simple data sets <br>
+						8.	Resistant to overfitting<br>
+						9.	Can inter pret model coefficients as indicators of feature importance<br>
+
+						When used on the data set at hand, it gives a training accuracy of 98.33% and a test accuracy of 97.41%. <br> <br>
+
+
+						<b>Multinomial Regression</b> - <br>
+
+						Softmax regression (or multinomial logistic regression) is a generalization of logistic regression to the case where we want to handle multiple classes. In logistic regression the labels were binary, for this case the labels are more than two (three in our case i.e. Running, Cycling, Standing).In the softmax regression setting, we are interested in multi-class classification (as opposed to only binary classification), and so the label can take on K (the number of classes in question) different values, rather than only two. we want to estimate the probability of the class label taking on each of the K different possible values. Thus, our hypothesis will output a K-dimensional vector (whose elements sum to 1) giving us our K estimated probabilities.In the special case where K = 2, one can show that softmax regression reduces to logistic regression. This shows that softmax regression is a generalization of logistic regression. <br>
+
+						When used on the data set at hand, it gives a training accuracy of 98.61% and a test accuracy of 98.05%. <br> <br>
+
+
+						<b>Support Vector Machine</b> - <br>
+
+						Support Vector Machines fall under the category of supervised learning models that analyze data used for classification and regression analysis.  
+						Given a set of training examples, each marked as belonging to one or the other of two categories, an SVM training algorithm builds a model that assigns new examples to one category or the other, making it a non-probabilistic linear classifier (although methods such as Platt Scaling exist to use SVM in a probabilistic classification setting). An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.
+
+						 Other SVM classfiers used are Polynomial SVM and  Gaussian (RBF) SVM, the difference being that the kernel used are polynomial and Gaussian respectively. <br> <br>
+
+	
+
+						<b>Results from various classifiers</b> :- <br>
+						<b>=================</b> <br> <br>
+
+						#Logistic Regression Train Accuracy ::  0.983333333333<br>
+						#Logistic Regression Test Accuracy ::  0.974110032362 <br> <br>
+
+						#Multinomial Logistic Regression Train Accuracy ::  0.986111111111 <br>
+						#Multinomial Logistic Regression Test Accuracy ::  0.980582524272 <br> <br>
+
+						#Linear SVM Train Accuracy ::  0.988888888889 <br>
+						#Linear SVM Test Accuracy ::  0.980582524272 <br> <br>
+
+						#rbf SVM Train Accuracy ::  0.991666666667 <br>
+						#rbf SVM Test Accuracy ::  0.961165048544 <br> <br>
+
+						#Poly SVM Train Accuracy ::  0.994444444444 <br>
+						#Poly SVM Test Accuracy ::  0.987055016181 <br> <br>
+
+						All the classifiers used are performing reasonably well and showing a high level of accuracy. Poly SVM performed the best on both the training and testing dataset.
 						<!-- Stop edit here -->
 
 					</div>
@@ -177,7 +253,7 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						We classified the accelerometer data with quite a decent accuracy. The accuracy was cross checked with a new dataset and the accuracy remained approximately constant. This gave us the idea that the extracted features were able to be distinguished for the above activities, and thus gave high accuracy.
+						Write something here.
 						<!-- Stop edit here -->
 
 					</div>
@@ -187,7 +263,10 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						The above work has been done only for running, standing and cycling. This project can be extended over classification of all normal day to day activities such as climbing, sleeping, walking, sitting etc. This would help us survey our daily routine and thus make proper improvements.
+						1. More efficient algorithms for the classification purpose are to be investigated obtaining better accuracy. Keeping in view that the classification if can be done in real time would be a great asset. Thus, appropriate feature vectors and algorithms have to be explored for segmenting the data and classifying these segments into different activities.<br> <br>
+						2. The sampling rate used in the present approach is quite low, this in itself causes complications in the extraction of features. Hence, for a future extension it becomes worth investigating the ideal sampling rate so that data obtained does not become redundant, all the while making it easier to select and extract features.<br> <br>
+						3. Since an individual performs many more activities than just the three considered it is worthwhile to investigate methods for classification among more number of activities. 
+
 						<!-- Stop edit here -->
 
 					</div>
