@@ -38,7 +38,8 @@
 					Activity Recognition is an emerging field of research, born from the larger fields of ubiquitous computing, context-aware computing and multimedia. Recently, recognizing everyday life activities becomes
 					one of the challenges for pervasive computing. It is required in various applications such as medical monitoring and rehabilitation where accurate and detailed measurement of an individual's physical activity is a key requirement. Accelerometers have become the popular choice for measuring physical activity owing to their small size, low cost, convenience and their ability to provide objective information about physical activity. In what follows, an accurate activity recognition system is developed to classify the activities performed into three classes i.e. Standing, Running and Cycling. The accelerometer is worn at the right waist of the user. <br> <br>
 
-					 Data from accelerometer is subjected to feature extraction and then interpreting of the data from this process is done using machine learning algorithms. Accelerometer data obtained is divided into non-overlapping short windows of length 10 instances i.e. 5 continuous seconds in our case beacuse our sampling rate is 2 samples/second. Each window then yields a 15-dimentional feature vector which is used in a training process of machine learning model. 15 features are considered and extracted for the task at hand. Motivation for them are as follows :- <br> <br>
+					 Data from accelerometer is subjected to feature extraction and then interpreting of the data from this process is done using machine learning algorithms. Accelerometer data obtained is divided into non-overlapping short windows of length 10 instances i.e. 5 continuous seconds in our case beacuse our sampling rate is 2 samples/second. Each window then yields a 15-dimentional feature vector which is used in a training process of machine learning model. 15 features are considered and extracted for the task at hand. <br><br>
+					 Motivation for our features are as follows :- <br> <br>
 
 					1. <b><u>Mean:</b></u> Mean refers to the central tendency of the data distribution so it is tells to which value is our activity data biased. <br> <br>
 					2. <b><u>Standard deviation:</b></u> This feature represents the amount of variation or the dispersion of the data present in the activity, so it can differentiate between the activities with same mean values. <br> <br>
@@ -72,7 +73,7 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						We will be given accelerometer data from 3 activities namely: Standing, Running and Cycling and we need to classify/detect which activity is being performed, from those data entries.  
+						Given accelerometer data from 3 activities namely: <b>Standing, Running & Cycling</b>, we need to classify/detect which activity is being performed from those corresponding data entries.  
 						<!-- Stop edit here -->
 
 					</div>
@@ -84,7 +85,7 @@
 
 						<!-- Start edit here  -->
 						<br>
-						Block diagram of the system. 
+						Representative image of our Project. 
 						<img src="Try.png" width="540px" height="360px" alt="This text displays when the image is unavailable"/>
 						<!-- Stop edit here -->
 
@@ -95,13 +96,13 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Some of the approaches, ideas and hints that we found after surveying some papers :- <br> <br>
+						Some of the approaches, methodologies and ideas after surveying papers :- <br> <br>
 
 						1. Each time series A<sub>i</sub>, with i = {x, y, z} can be filtered with a digital filter in order to separate low frequencies components and high frequencies component. The cut-off frequency has been set to 1 Hz, arbitrarily. In this way, we obtain for each time series, three more time series A<sub>ij</sub> with j = {b, dc, ac}, where b, dc, ac represent respectively the time series without filtering, the time series resulting from a low pass filtering and the time series resulting from a high pass filtering. <br> <br>
 						2. A successful technique for extracting features from sequential motion data has been demonstrated to be windowing with overlapping or continuous non-overlapping windows. <br> <br>
-						3. We can extract the following features: root mean squared value of integration of acceleration in a window, mean value of Minmax sums, mean value, standard deviation, coefficient of variation, zero crossing rate, skewness, kurtosis , squared sum of data below 25 & 75 percentile, mean of mean of CWC, variance of CWC and correlation between each pairwise of accelerometer axis. <br>
+						3. We can extract the following features: root mean squared value of integration of acceleration in a window, mean value of Minmax sums, mean value, standard deviation, coefficient of variation, zero crossing rate, skewness, kurtosis , squared sum of data below 25 & 75 percentile, mean of mean of CWC, variance of CWC and correlation between each pairwise of accelerometer axis. <br><br>
 
-						#NOTE : Papers that we have gone through while literature review for collecting ideas, approaches and methodologies are:-
+						<b>#NOTE</b> : Papers that we have gone through while literature review for collecting ideas, approaches and methodologies are:-
 						1. A Study on Human Activity Recognition Using Accelerometer Data <br>
 						2. Feature Selection and Activity Recognition <br>
 						3. Physical Activity Recognition from Accelerometer <br>
@@ -132,7 +133,7 @@
 						<b>Section 1</b> describes the Motivation for our Project, Problem Statement and the Literature we reviewed. <br> 
 						<b>Section 2</b> describes the detailed approach followed to extract feature out of the given dataset. <br>
 						<b>Section 3</b> shows our classification results and the data set used for verifying. <br>
-						In <b>section 4</b>, we summarised our whole project work.
+						In <b>section 4</b>, a summary of our whole project work is presented.
 						<!-- Stop edit here -->
 
 					</div>
@@ -150,7 +151,7 @@
 					 <b><u>Step 2 : Feature Extraction:-</u></b> <br><br>
 					 A 15-dimension feature vectors is extracted from non-overlapping short windows of length 10 instances i.e. 5 seconds for the activities as obtained earlier. <br> <br>
 
-					The following are some details about the same :- <br>
+					The following are some details about the same :- <br><br>
 
 					1. <b><u>Mean</u></b>- The average of the acceleration data along all the three axes is calculated and RMS value is taken. <br> <br>
 
@@ -190,7 +191,7 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Data is collected from ADXL335 which is a tri-axial accelerometer worn on the waist of the user. The data set is obtained by recording 9 sets of data which are performed by a number of individuals. Total duration of each set being 7.5 minutes corresponding to 2.5 minutes for each activity. These activities are performed in succession i.e. running, then cycling followed by standing. The total duration of data for each of the activity being [(2.5 minutes) * 9] = 22.5 minutes. The sampling rate used is 2 Hz and hence a total of [22.5 * (60 seconds) * (2 samples/second)] = 2700 samples for each activity. <br>
+						Data is collected from ADXL335 which is a tri-axial accelerometer worn on the waist of the user. The data set is obtained by recording <b>9 sets</b> of data which are performed by a number of individuals. Total duration of each set being <b>7.5 minutes</b> corresponding to 2.5 minutes for each activity. These activities are performed in succession i.e. running, then cycling followed by standing. The total duration of data for each of the activity being <b>[(2.5 minutes) * 9] = 22.5 minutes</b>. The <b>sampling rate</b> used is <b>2 Hz</b> and hence a total of <b>[22.5 * (60 seconds) * (2 samples/second)] = 2700 samples</b> for each activity. <br>
 						Acceleration data corresponding to the three axes are therefore collected. This data is segregated into different categories i.e. Running, Cycling and Standing and the data set is created.
 
 
@@ -205,14 +206,15 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
+						The following classifiers are used in our Project :- <br> <br>
 
-						<u><b>Logistic Regression Model</b></u> - <br> <br>
+						1. <u><b>Logistic Regression Model</b></u> - <br> <br>
 
 						This is a classfication technique which fits a linear model to the feature space involving a probabilistic view of classification. This model involves a vector ß in d – dimensional feature space, the points in feature space are projected on to ß and converted into a real number in the range spanning the whole real line. This real number, thus obtained, is mapped to a value in the range 0 to 1 using the standard logistic function. The prediction using this model can be treated as a probability of class membership. By applying threshold to probability, class assignment can be done. Threshold represents the decision boundadry in the feature space.
 
 						ß is optimized to give the best possible reproduction of training set labels. This is usually done by numerical approximation of maximum likelihood. On really large datasets, stochastic gradient descent may be used.
 
-						There are a number of advantages to this - <br>
+						There are a number of advantages to this :- <br><br>
 
 						1.	Makes no assumptions about distributions of classes in feature space.<br>
 						2.	Easily extended to multiple classes (multinomial regression) <br>
@@ -222,38 +224,49 @@
 						6.	Very fast at classifying unknown records<br>
 						7.	Good accuracy for many simple data sets <br>
 						8.	Resistant to overfitting<br>
-						9.	Can inter pret model coefficients as indicators of feature importance<br>
+						9.	Can interpret model coefficients as indicators of feature importance<br><br>
 
 						When used on the data set at hand, it gives a training accuracy of 98.33% and a test accuracy of 97.41%. <br> <br>
 
 
-						<u><b>Multinomial Regression</b></u> - <br> <br>
+						2. <u><b>Multinomial Regression</b></u> - <br> <br>
 
-						Softmax regression (or multinomial logistic regression) is a generalization of logistic regression to the case where we want to handle multiple classes. In logistic regression the labels were binary, for this case the labels are more than two (three in our case i.e. Running, Cycling, Standing).In the softmax regression setting, we are interested in multi-class classification (as opposed to only binary classification), and so the label can take on K (the number of classes in question) different values, rather than only two. we want to estimate the probability of the class label taking on each of the K different possible values. Thus, our hypothesis will output a K-dimensional vector (whose elements sum to 1) giving us our K estimated probabilities.In the special case where K = 2, one can show that softmax regression reduces to logistic regression. This shows that softmax regression is a generalization of logistic regression. <br>
+						Softmax regression (or multinomial logistic regression) is a generalization of logistic regression to the case where we want to handle multiple classes. In logistic regression the labels were binary, for this case the labels are more than two (three in our case i.e. Running, Cycling, Standing).In the softmax regression setting, we are interested in multi-class classification (as opposed to only binary classification), and so the label can take on K (the number of classes in question) different values, rather than only two. we want to estimate the probability of the class label taking on each of the K different possible values. Thus, our hypothesis will output a K-dimensional vector (whose elements sum to 1) giving us our K estimated probabilities.In the special case where K = 2, one can show that softmax regression reduces to logistic regression. This shows that softmax regression is a generalization of logistic regression. <br><br>
 
 						When used on the data set at hand, it gives a training accuracy of 98.61% and a test accuracy of 98.05%. <br> <br>
 
 
-						<u><b>Support Vector Machine</b></u> - <br> <br>
+						3. <u><b>Support Vector Machine</b></u> - <br> <br>
 
 						Support Vector Machines fall under the category of supervised learning models that analyze data used for classification and regression analysis.  
 						Given a set of training examples, each marked as belonging to one or the other of two categories, an SVM training algorithm builds a model that assigns new examples to one category or the other, making it a non-probabilistic linear classifier (although methods such as Platt Scaling exist to use SVM in a probabilistic classification setting). An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.
 
 						 Other SVM classfiers used are Polynomial SVM and  Gaussian (RBF) SVM, the difference being that the kernel used are polynomial and Gaussian respectively. <br> <br>
 
-						<br><u><b>Plotting Mean, Standard Deviation and Coefficient of Variation:</b></u> <br>
+						 <b># <u>Plots with different features mapped on 3 axes for Standing, Running and Cycling.</u></b><br><br> 	
+						 
+						 Standing corresponds to Red points. <br>
+						 Running corresponds to Green points. <br>
+						 Cycling corresponds to Black points. <br>
+						 <br>
+						 In each of the case:- <br>
+						 1st Feature is mapped in X direction. <br>
+						 2st Feature is mapped in Y direction. <br>
+						 3st Feature is mapped in Z direction. <br>
+
+						<br><u><b>Plot of Mean, Standard Deviation and Coefficient of Variation:</b></u> <br>
 						<img src="13.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
 
-						<br><u><b>Plotting Crest Factor, Average and Squared Sum of Data below 25 Percentile:</b></u> <br>
+						<br><u><b>Plot of Crest Factor, Average and Squared Sum of Data below 25 Percentile:</b></u> <br>
 						<img src="46.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
 
-						<br><u><b>Plotting Squared Sum of Data below 25 Percentile, Peak Frequency and Number of peaks in Spectrum of Y-axis data below 2 Hz:</b></u> <br>
+						<br><u><b>Plot of Squared Sum of Data below 25 Percentile, Peak Frequency and Number of peaks in Spectrum of Y-axis data below 2 Hz:</b></u> <br>
 						<img src="79.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
 
-						<br><u><b>Plotting Lag One Auto-Correlation, Skewness and Kurtosis:</b></u> <br>
+						<br><u><b>Plot of Lag One Auto-Correlation, Skewness and Kurtosis:</b></u> <br>
 						<img src="1012.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
 
-						<br><u><b>Plotting Zero Crossing Rate, Continuous Wavelet Transform Mean, Continuous Wavelet Transform Variance:</b></u> <br>
+						<br><u><b>Plot of Zero Crossing Rate, Continuous Wavelet Transform Mean, Continuous Wavelet Transform Variance:</b></u> <br>
 						<img src="1315.png" width="560px" height="420px" alt="This text displays when the image is unavailable"/>
 
 						<br> <br>
@@ -269,13 +282,13 @@
 						#Linear SVM Train Accuracy ::  0.988888888889 <br>
 						#Linear SVM Test Accuracy ::  0.980582524272 <br> <br>
 
-						#rbf SVM Train Accuracy ::  0.991666666667 <br>
-						#rbf SVM Test Accuracy ::  0.961165048544 <br> <br>
+						#RBF SVM Train Accuracy ::  0.991666666667 <br>
+						#RBF SVM Test Accuracy ::  0.961165048544 <br> <br>
 
-						#Poly SVM Train Accuracy ::  0.994444444444 <br>
-						#Poly SVM Test Accuracy ::  0.987055016181 <br> <br>
+						#Polynomial SVM Train Accuracy ::  0.994444444444 <br>
+						#Polynomial SVM Test Accuracy ::  0.987055016181 <br> <br>
 
-						All the classifiers used are performing reasonably well and showing a high level of accuracy. Poly SVM performed the best on both the training and testing dataset.
+						All the classifiers have performed reasonably well and are showing a high level of accuracy. Polynomial SVM performed the best on both the training and testing dataset.
 						<!-- Stop edit here -->
 
 					</div>
@@ -289,13 +302,11 @@
 					<div class="text">
 
 						<!-- Start edit here  -->
-						The classifiers that we have used are Logistic Regression, Multinomial Regression and SVM trained on the features as previously mentioned i.e. Mean, Standard Deviation, Skewness, Kurtosis, Coefficient of Variation, Crest Factor, Zero Crossing Rate, 25 Percentile & 75 Percentile, Data below 25 and 75 percentile, Peak Frequency Component below 2 Hz, Number of peaks in y-axis data below 2Hz and Lag One Autocorrelation. The Multinomial Regression Classifier performed best while the other classifiers i.e. Logistic Regression and SVM Classifier performed reasonably well.
+						The classifiers that we have used are Logistic Regression, Multinomial Regression and SVM trained on the features as previously mentioned i.e. Mean, Standard Deviation, Skewness, Kurtosis, Coefficient of Variation, Crest Factor, Zero Crossing Rate, 25 Percentile & 75 Percentile, Data below 25 and 75 percentile, Peak Frequency Component below 2 Hz, Number of peaks in y-axis data below 2Hz and Lag One Autocorrelation. The Multinomial Regression Classifier performed best while the other classifiers i.e. Logistic Regression and SVM Classifier performed reasonably well. <br> <br>
 
 						The methodology used classifies activities performed by differnet individuals at differnet speed and style with high accuracy. The system developed, thus, provides a foundation towards a more robust system that will require minimum training of the users and provide least errors due to orientation and positioning offsets of the accelerometer.
 
-						 With extension of the given system to include classification of more activities performed in real time it remains to test the system on more subjects. 
-
-						Also with the high accuracy achieved, it becomes worthwhile to deploy the system for real time use. 
+						 With extension of the given system to include classification of more activities performed in real time it remains to test the system on more subjects. Also with the high accuracy achieved, it becomes worthwhile to deploy the system for real time use. 
 
 						<!-- Stop edit here -->
 
